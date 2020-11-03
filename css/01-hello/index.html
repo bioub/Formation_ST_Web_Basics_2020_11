@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="app.css" />
+    <style>
+      /* commentaire JAMAIS avec // ou <!-- */
+      /*
+    selecteur CSS {
+      propriete-css: valeur-associe;
+      propriete-css: valeur-associe;
+      propriete-css: valeur-associe;
+      propriete-css: valeur-associe;
+    }
+    */
+      * {
+        /* box-sizing */
+        /* background-color: grey; */
+      }
+
+      body {
+        /*
+      background-color et border-*
+      ne sont pas héritée */
+        background-color: yellow;
+        border-width: 4px;
+        border-color: red;
+        border-style: solid;
+
+        /* font-weight est héritée */
+        font-weight: bold;
+      }
+
+      /* attention à la spécificité CSS
+       -> priorité des sélecteurs */
+      p.other-paragraphs {
+        background-color: coral;
+      }
+
+      #first-paragraph {
+        background-color: hotpink;
+      }
+
+      [id="first-paragraph"] {
+        border: 1px solid black;
+      }
+
+      .other-paragraphs {
+        background-color: blue;
+      }
+
+      /* #introduction > p.last-paragraphs {
+
+      } */
+    </style>
+  </head>
+  <body>
+    <!-- attribut style = MAUVAISE PRATIQUE -->
+    <div id="introduction" style="background-color: greenyellow">
+      <p id="first-paragraph">
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Animi
+        similique omnis nihil vitae voluptate totam eaque sapiente architecto
+        doloribus <b>maxime</b> non reiciendis unde veniam, quisquam vero voluptatem
+        minima neque in.
+      </p>
+      <p class="other-paragraphs" style="background-color: darkcyan">
+        Culpa nesciunt ab labore id enim facere dicta soluta, reprehenderit
+        totam neque est consectetur, aperiam beatae earum. Quidem in similique
+        eveniet, aperiam, non eligendi excepturi dicta reiciendis nostrum ex
+        rerum!
+      </p>
+      <p class="other-paragraphs last-paragraph">
+        Incidunt odio ducimus ipsum, corrupti hic pariatur enim excepturi
+        minima, accusamus non odit totam illo delectus eveniet magni unde quae
+        recusandae, necessitatibus culpa. Labore alias est fugiat itaque
+        reprehenderit necessitatibus?
+      </p>
+      <p>transparent</p>
+    </div>
+  </body>
+</html>

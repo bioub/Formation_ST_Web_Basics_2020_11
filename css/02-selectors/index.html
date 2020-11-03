@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    h2 + p {
+      background-color: yellow;
+    }
+
+    h2 + p::first-letter {
+      font-size: 3em;
+    }
+
+    h2 ~ p {
+      text-decoration: underline;
+    }
+
+    /* li:not(:first-child) */
+    li + li {
+      background-color: orange;
+    }
+
+    li:nth-child(1) {
+      background-color: orchid;
+    }
+
+    li:first-child {
+      color: white;
+    }
+
+    /*
+    sélectionne rien parce que pas de h2 premier enfant
+    d'une autre balise
+    */
+    h2:first-child {
+      color: red;
+    }
+
+    /* h2:nth-of-type(1) */
+    h2:first-of-type {
+      text-decoration: underline;
+    }
+
+    /* tr:nth-child(2n+1) */
+    tr:nth-child(odd) {
+      background-color: lightblue;
+    }
+    /* tr:nth-child(2n) */
+    tr:nth-child(even) {
+      background-color: lightgreen;
+    }
+
+    /* [class~='important']
+    .important {
+
+    }
+    */
+
+    /* body {
+      color: green;
+    } */
+
+    a:link {
+      /* les liens n'héritent pas de la couleur */
+      color: green
+    }
+
+    a:visited {
+      color: red
+    }
+
+    a:hover {
+      text-decoration: none;
+    }
+
+    a:active {
+      color: orange;
+    }
+
+    /* :hover et :active fonctionnent aussi sur d'autres
+    type d'éléments */
+
+    p:hover {
+      background-color: yellow;
+    }
+
+    p:active {
+      background-color: red;
+    }
+
+    /* CSS Selector Level 4 */
+    input:valid {
+      background: lightgreen;
+    }
+
+    input:invalid {
+      background: lightcoral;
+    }
+
+    a[href^='http://']::after {
+      content: ' (warning: not secure)'
+    }
+  </style>
+</head>
+<body>
+  <section class="important first">
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias, quis praesentium minus in, veniam mollitia voluptatibus labore totam temporibus doloribus ab non architecto incidunt voluptas dolores obcaecati aspernatur, amet sunt?</p>
+    <h2>Introduction</h2>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Fuga eius distinctio assumenda cum excepturi, sunt minus temporibus consequatur maxime reprehenderit accusantium beatae molestiae perferendis vero ut necessitatibus deserunt doloremque iste.</p>
+    <p>Ipsa inventore aspernatur perspiciatis odit, incidunt temporibus quisquam facere laboriosam ex minima necessitatibus similique, accusamus est rem delectus ab molestias quasi commodi veniam doloribus maiores iure nisi sint assumenda. Quo.</p>
+    <p>Accusamus optio adipisci, porro dolor nisi voluptatibus doloremque officiis? Consequatur sed sit, inventore aspernatur repellendus odit omnis commodi aut natus et possimus quasi maiores adipisci ipsum eaque magnam? Minima, eos?</p>
+    <ul>
+      <li>Lorem.</li>
+      <li>Eligendi.</li>
+      <li>Delectus?</li>
+    </ul>
+  </section>
+  <table>
+    <tr>
+      <td>Lorem.</td>
+    </tr>
+    <tr>
+      <td>Sequi?</td>
+    </tr>
+    <tr>
+      <td>Illo.</td>
+    </tr>
+    <tr>
+      <td>Inventore.</td>
+    </tr>
+    <tr>
+      <td>Deleniti.</td>
+    </tr>
+  </table>
+  <nav>
+    <a href="https://www.google.fr/">Google</a>
+    <a href="http://www.bing.fr/">Bing</a>
+    <a href="https://www.yahoo.fr/">Yahoo</a>
+  </nav>
+  <form>
+    <input type="text" required>
+  </form>
+</body>
+</html>
