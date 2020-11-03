@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h2>Formulaire de recherche</h2>
+  <a href="https://www.google.com/search?q=HTML">Recherche HTML</a>
+  <a href="https://www.google.com/search?q=CSS">Recherche CSS</a>
+  <a href="https://www.google.com/search?q=JavaScript">Recherche JavaScript</a>
+  <form method="GET" action="https://www.google.com/search">
+    <div>
+      <label>
+        Recherche
+        <input type="text" name="q">
+      </label>
+    </div>
+    <div>
+      Page
+      <select name="start">
+        <option value="0">Page 1</option>
+        <option value="10">Page 2</option>
+        <option value="20">Page 3</option>
+        <option value="30">Page 4</option>
+        <option value="40">Page 5</option>
+      </select>
+    </div>
+    <button>Search</button>
+  </form>
+  <h2>Formulaire d'inscription</h2>
+  <form action="https://www.google.com/register" method="post">
+    <div>
+      Newsletter :
+      <label>
+        <input type="radio" name="newsletter">
+        Oui
+      </label>
+      <input type="radio" name="newsletter" id="non">
+      <label for="non">Non</label>
+    </div>
+    <div>
+      Loisirs :
+      <label>
+        <input type="checkbox" name="loisirs">
+        Sport
+      </label>
+      <input type="checkbox" name="loisirs" id="cinema">
+      <label for="cinema">Cinema</label>
+    </div>
+    <div>
+      Description
+      <textarea name="description"></textarea>
+    </div>
+    <div>
+      Photo
+      <input type="file" multiple>
+    </div>
+  </form>
+
+  <h2>Formulaire avec upload</h2>
+  <form action="https://www.google.com/register" method="post" enctype="multipart/form-data">
+    <div>
+      Photo (un seule)
+      <input type="file" name="photo">
+    </div>
+    <div>
+      Photo (plusieurs)
+      <input type="file" name="photos" multiple>
+    </div>
+  </form>
+</body>
+</html>
