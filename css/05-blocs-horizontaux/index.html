@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    section {
+      display: flex;
+      flex-wrap: wrap;
+      background-color: lightblue;
+      padding: 10px 0;
+    }
+
+    div {
+      width: 50px;
+      height: 50px;
+      /* margin: 0 20px; */
+      padding: 5px;
+      box-sizing: border-box;
+    }
+
+    section > div:first-child {
+      background-color: lightgreen;
+      width: 30%;
+      height: 100px;
+      /* width: calc(30% - 10px); */
+    }
+
+    section > div:last-child {
+      background-color: lightcoral;
+      width: 70%;
+      /* width: calc(70% - 10px); */
+    }
+  </style>
+</head>
+<body>
+  <section>
+    <div>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Totam quasi voluptatibus recusandae molestias qui esse nisi earum. Tenetur hic accusamus minus, placeat ratione, vero dicta eius, est aperiam quam perspiciatis!</div>
+    <div>Lorem ipsum dolor sit amet consectetur adipisicing elit. Eos veniam quo voluptas iusto. Porro tempora optio suscipit, impedit nulla aperiam, inventore soluta praesentium, temporibus consequatur aut quia cumque eveniet natus.</div>
+  </section>
+</body>
+</html>

@@ -14,7 +14,7 @@
     <div>
       <label>
         Recherche
-        <input type="text" name="q">
+        <input autofocus type="text" name="q">
       </label>
     </div>
     <div>
@@ -34,28 +34,31 @@
     <div>
       Newsletter :
       <label>
-        <input type="radio" name="newsletter">
+        <input type="radio" name="newsletter" value="oui">
         Oui
       </label>
-      <input type="radio" name="newsletter" id="non">
+      <input type="radio" name="newsletter" id="non" value="non">
       <label for="non">Non</label>
     </div>
     <div>
       Loisirs :
       <label>
-        <input type="checkbox" name="loisirs">
+        <input type="checkbox" name="loisirs" value="sport">
         Sport
       </label>
-      <input type="checkbox" name="loisirs" id="cinema">
+      <input type="checkbox" name="loisirs" id="cinema" value="cinema">
       <label for="cinema">Cinema</label>
     </div>
     <div>
       Description
-      <textarea name="description"></textarea>
+      <textarea  name="description"></textarea>
     </div>
     <div>
       Photo
       <input type="file" multiple>
+    </div>
+    <div>
+      <button>Register</button>
     </div>
   </form>
 
