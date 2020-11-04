@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .breadcrumb {
+      }
+
+      .breadcrumb > div {
+        display: inline;
+      }
+
+      .breadcrumb > div:not(:first-child)::before {
+        content: " > ";
+      }
+
+      .container {
+        background-color: lightpink;
+      }
+
+      .clearfix::after {
+        content: '';
+        display: block;
+        clear: left;
+      }
+
+      .container > .col {
+        float: left;
+      }
+
+      .blue {
+        background-color: lightblue;
+        width: 30%;
+      }
+
+      .green {
+        background-color: lightgreen;
+        width: 30%;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="breadcrumb">
+      <div>Home</div>
+      <div>Livres</div>
+      <div>Bande dessinées</div>
+    </div>
+    <div class="container clearfix">
+      <div class="col blue">
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
+        obcaecati perferendis earum est eos harum cupiditate cumque molestiae,
+        possimus suscipit quos nam facere recusandae dicta aliquam corrupti ex
+        repudiandae. Autem.
+      </div>
+      <div class="col green">
+        Nihil aut obcaecati laudantium expedita beatae iure veritatis. Culpa,
+        quam! Iure accusamus alias, non dignissimos perspiciatis, qui repellat
+        minima corrupti unde repudiandae nostrum, numquam quas quo blanditiis.
+        Laborum, non obcaecati?
+      </div>
+    </div>
+  </body>
+</html>
