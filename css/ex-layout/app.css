@@ -1,0 +1,134 @@
+body {
+  background-color: rgb(231, 231, 231);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color: #1a1a1a;
+}
+
+nav ul {
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+}
+
+.container {
+  width: 960px;
+  background-color: white;
+  margin: 0 auto;
+  min-height: calc(100vh - 8px * 2);
+  display: flex;
+  flex-direction: column;
+}
+
+header {
+  background-color: blue;
+  height: 100px;
+  color: white;
+  padding: 5px;
+  position: relative;
+}
+
+header h1 {
+  margin-top: 0;
+}
+
+header .user-menu {
+  background-color: green;
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 5px
+}
+
+header .user-menu a {
+  color: white;
+  text-decoration: none;
+}
+
+header .user-menu a:not(:first-child)::before {
+  content: ' | ';
+}
+
+.panel {
+  display: flex;
+  flex: 1; /* occupe 1/1 donc 100% de l'espace restant */
+}
+
+.panel aside {
+  background-color: yellow;
+  width: 20%;
+}
+
+.panel aside li {
+  background-color: orange;
+  height: 30px; /* variable menuItemHeight */
+  margin: 0.5em 0;
+  /* transition-property: background-color;
+  transition-duration: 400ms;
+  transition-timing-function: ease;
+  transition-delay: 100ms; */
+  transition: background-color 400ms ease 100ms, transform 400ms ease;
+}
+
+.panel aside li:hover {
+  background-color: orangered;
+  transform: scale(1.2);
+}
+
+.panel aside li a {
+  display: block;
+  height: 100%;
+  text-align: center;
+  line-height: 30px; /* variable menuItemHeight */
+  text-decoration: none;
+  color: white;
+}
+
+.panel main {
+  box-sizing: border-box;
+  width: 80%;
+  padding: 5px;
+}
+
+.panel main .breadcrumb {
+  margin-bottom: 1em;
+}
+
+.panel main .breadcrumb > div {
+  display: inline;
+}
+
+.panel main .breadcrumb > div:not(:first-child)::before {
+  content: ' • '
+}
+
+.panel main .breadcrumb a {
+  text-decoration: none;
+  color: black
+}
+
+.panel main .breadcrumb a:hover {
+  text-decoration: underline;
+}
+
+.panel main .gallery {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.panel main .gallery > div {
+  width: calc((100% / 3) - ((8px * 2) / 3));
+  margin-left: 8px;
+  margin-bottom: 8px;
+  height: 100px;
+  border: 1px solid black;
+  box-sizing: border-box;
+
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+
+.panel main .gallery > div:nth-child(3n + 1) {
+  margin-left: 0;
+}

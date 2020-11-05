@@ -7,13 +7,17 @@
     <style>
       body {
         background-color: rgb(35%, 35%, 35%);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif;
-        color:rgb(10%, 10%, 10%)
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        /* color: rgb(10%, 10%, 10%); */
+        /* color: rgb(26, 26, 26); */
+        color: #1a1a1a;
       }
 
       a {
         /* pas d'héritage sur les propriétés dans le cas des liens */
         text-decoration: none;
+        color: rgb(98, 151, 183);
       }
 
       #form-register {
@@ -26,6 +30,10 @@
       .form-row {
         margin-bottom: 0.8em;
       }
+
+      /* .form-row:last-child {
+        margin-bottom: 0;
+      } */
 
       label {
         display: block;
@@ -41,9 +49,27 @@
         font-size: 0.8em;
       }
 
-      .form-input-group input, .form-input-group select {
+      .form-input-group input,
+      .form-input-group select {
         box-sizing: border-box;
         width: 100%;
+      }
+
+      .form-input-group-username {
+        position: relative;
+      }
+
+      .form-input-group-username::after {
+        position: absolute;
+        content: "@gmail.com";
+        top: 3px;
+        right: 4px;
+        font-size: 0.8em;
+        color: #757575;
+      }
+
+      .form-input-group-username input {
+        padding-right: 80px;
       }
 
       .form-input-group-name input {
@@ -54,11 +80,13 @@
         margin-left: 4px;
       }
 
-      .form-input-group-birthdate input, .form-input-group-birthdate select {
+      .form-input-group-birthdate input,
+      .form-input-group-birthdate select {
         width: calc(33.33% - ((6px * 2) / 3));
       }
 
-      .form-input-group-birthdate input:not(:first-child), .form-input-group-birthdate select:not(:first-child) {
+      .form-input-group-birthdate input:not(:first-child),
+      .form-input-group-birthdate select:not(:first-child) {
         margin-left: 6px;
       }
     </style>
@@ -68,12 +96,17 @@
       <div class="form-row">
         <label>Nom</label>
         <div class="form-input-group form-input-group-name">
-          <input type="text" name="prenom" placeholder="Prénom" required /><input type="text" name="nom" placeholder="Nom" required />
+          <input
+            type="text"
+            name="prenom"
+            placeholder="Prénom"
+            required
+          /><input type="text" name="nom" placeholder="Nom" required />
         </div>
       </div>
       <div class="form-row">
         <label>Choisissez votre nom d'utilisateur</label>
-        <div class="form-input-group">
+        <div class="form-input-group form-input-group-username">
           <input type="text" name="username" required />
         </div>
         <div class="form-helper">
@@ -98,8 +131,8 @@
           <input type="text" name="jour" required /><select name="mois">
             <option value="01">Janvier</option>
             <option value="02">Février</option>
-            <option value="03">Mars</option>
-          </select><input type="text" name="annee" required />
+            <option value="03">Mars</option></select
+          ><input type="text" name="annee" required />
         </div>
       </div>
       <div class="form-row">
