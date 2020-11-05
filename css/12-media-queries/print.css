@@ -1,0 +1,27 @@
+body {
+  background-color: rgb(231, 231, 231);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+  color: #1a1a1a;
+}
+
+header, aside {
+  display: none;
+}
+
+main .breadcrumb {
+  margin-bottom: 1em;
+}
+
+main .breadcrumb > div {
+  display: inline;
+}
+
+main .breadcrumb > div:not(:first-child)::before {
+  content: ' • '
+}
+
+main .breadcrumb a {
+  text-decoration: none;
+  color: black
+}

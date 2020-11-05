@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        display: grid;
+        grid-auto-rows: 100px;
+        grid-template-columns: 1fr 1fr;
+      }
+
+      .yellow {
+        background-color: lightyellow;
+      }
+
+      .red {
+        background-color: lightsalmon;
+      }
+
+      .green {
+        background-color: lightgreen;
+      }
+
+      .blue {
+        background-color: lightskyblue;
+        grid-row-start: 1;
+        grid-row-end: 2;
+        grid-column-start: 1;
+        grid-column-end: 3;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="item yellow"></div>
+      <div class="item red"></div>
+      <div class="item green"></div>
+      <div class="item blue"></div>
+    </div>
+  </body>
+</html>
