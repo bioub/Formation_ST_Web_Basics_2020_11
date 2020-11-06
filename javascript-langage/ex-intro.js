@@ -12,14 +12,16 @@ function randomString(maxLength = 10) {
   return chars.join('');
 }
 
-console.log(randomString());
-
 // Exercice :
 // remplir le tableau suivant avec 10 chaine de caractères aléatoire
 // (utiliser la fonction randomString)
 const randomStrings = [];
 
-// TODO
+for (let i = 0; i < 10; i++) {
+  randomStrings.push(randomString())
+}
+
+console.log('Chaines : ' + randomStrings.join(', '));
 
 // Exercice :
 // à partir du premier tableau, remplir les 2 suivants, le premier
@@ -27,7 +29,13 @@ const randomStrings = [];
 const randomStringsOdd = [];
 const randomStringsEven = [];
 
-// TODO
+for (const str of randomStrings) {
+  if (str.length % 2 === 1) {
+    randomStringsOdd.push(str);
+  } else {
+    randomStringsEven.push(str);
+  }
+}
 
 console.log('Chaines de taille impair : ' + randomStringsOdd.join(', '));
 console.log('Chaines de taille pair : ' + randomStringsEven.join(', '));
