@@ -5,6 +5,14 @@ body {
   color: #1a1a1a;
 }
 
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+}
+
+a {
+  color: pink;
+}
+
 nav ul {
   margin: 0;
   padding: 0;
@@ -67,10 +75,12 @@ header .user-menu a:not(:first-child)::before {
   transition-duration: 400ms;
   transition-timing-function: ease;
   transition-delay: 100ms; */
-  transition: background-color 400ms ease 100ms, transform 400ms ease;
+  transition: background-color 400ms ease 100ms, transform 400ms ease, opacity 400ms ease;
+  opacity: 1;
 }
 
 .panel aside li:hover {
+  opacity: 0.4;
   background-color: orangered;
   transform: scale(1.2);
 }
@@ -117,6 +127,7 @@ header .user-menu a:not(:first-child)::before {
 }
 
 .panel main .gallery > div {
+  /* 3 col de 33.33% - les 2 marges */
   width: calc((100% / 3) - ((8px * 2) / 3));
   margin-left: 8px;
   margin-bottom: 8px;

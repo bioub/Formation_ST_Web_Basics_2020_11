@@ -135,9 +135,17 @@ main .gallery {
   gap: 8px;
 }
 
+/* at-rule */
 @media (max-width: 760px) {
   main .gallery {
     grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+/* at-rule */
+@media (max-width: 330px) {
+  main .gallery {
+    grid-template-columns: 1fr;
   }
 }
 
