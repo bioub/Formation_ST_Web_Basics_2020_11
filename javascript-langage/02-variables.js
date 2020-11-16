@@ -39,3 +39,9 @@ constArray.push(4); // OK
 
 letArray = []; // OK
 // constArray = []; // ERREUR
+
+
+// for (let i = 0; i < array.length; i++) {
+//   const element = array[i];
+
+// }
