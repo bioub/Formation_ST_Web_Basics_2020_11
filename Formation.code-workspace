@@ -8,6 +8,9 @@
 		},
 		{
 			"path": "javascript-langage"
+		},
+		{
+			"path": "typescript"
 		}
 	],
 	"settings": {

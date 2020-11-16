@@ -17,7 +17,6 @@ console.log('Math.sum', Math.sum); // undefined
 // comme Math (norme du language, du navigateur, de node.js)
 // -> ne pas étendre des objets qu'on a pas créé
 
-
 // On peut empécher l'extension d'un objet
 // ES5
 // Object.preventExtensions(Math);
@@ -37,11 +36,9 @@ console.log('Math.sum', Math.sum); // undefined
 // delete Math.sum; // impossible configurable: false
 // console.log('Math.sum', Math.sum); // undefined
 
-
 function pileOuFace() {
   return Math.random() < 0.5 ? 'pile' : 'face';
 }
-
 
 // pour des tests automatisées, nécéssité de réécrire random temporairement (le temps du test)
 const backupRandom = Math.random;
@@ -50,7 +47,6 @@ console.log(pileOuFace()); // face
 Math.random = backupRandom; // supprime votre version de random
 
 console.log(pileOuFace()); // aléatoire
-
 
 // Créer un objet
 // directement avec object literal
@@ -72,7 +68,6 @@ const coordsB = {
   y: 4,
 };
 
-
 // MAUVAISE PRATIQUE DE METTRE DES METHODES
 const coords1 = {
   x: 1,
@@ -92,7 +87,13 @@ console.log(coords1.getType === coords2.getType); // false
 // 3 - une fonction qui prend un grand nombre de paramètres optionnel
 // (même use case que le 1, créé une seule fois pour passer les params)
 
-function setCss(width = '100%', height = 'auto', backgroundColor = 'transparent', padding = '0', margin = '0') {
+function setCss(
+  width = '100%',
+  height = 'auto',
+  backgroundColor = 'transparent',
+  padding = '0',
+  margin = '0',
+) {
   //
 }
 
@@ -100,8 +101,8 @@ setCss('100px'); // width
 setCss('100px', '50px'); // width, height
 setCss(undefined, undefined, undefined, undefined, '10px 20px'); // margin
 
-function setCss(properties) { // le nom du params est souvent options dans ce cas
-
+function setCss(properties) {
+  // le nom du params est souvent options dans ce cas
 }
 
 setCss({
@@ -112,9 +113,8 @@ setCss({
   height: '50px',
 }); // width, height
 setCss({
-  margin: '10px 20px'
+  margin: '10px 20px',
 }); // margin
-
 
 // Créer un objet
 // avec une fonction fabrique (factory) : function qui retourne un objet literal
@@ -128,7 +128,6 @@ function getCoords3d(x = 0, y = 0, z = 0) {
 }
 
 const coords3d = getCoords3d(); // {x: 0, y: 0, z: 0}
-
 
 // avec une fonction constructeur
 // convention : la fonction commence par une majuscule
@@ -150,7 +149,7 @@ function Contact(prenom) {
 }
 
 // pas de duplication
-Contact.prototype.hello = function() {
+Contact.prototype.hello = function () {
   return 'Hello ' + this.prenom;
 };
 
@@ -170,8 +169,46 @@ console.log('romain.prenom', romain.prenom); // Romain
 // delete romain.prenom;
 // console.log('romain.prenom', romain.prenom); // undefined
 
-
 console.log('romain.hello()', romain.hello()); // Hello Romain
 
 const jean = new Contact('Jean');
 console.log(romain.hello === jean.hello); // true (partagée via le prototype)
+
+// Pour boucler sur un objet
+// (voir aussi for .. in mais qui est moins performant)
+for (const key of Object.keys(coordsA)) {
+  console.log(key);
+  const value = coordsA[key];
+}
+
+// 2 opérateurs pour accéder aux clés/valeurs
+console.log(coordsA.x);
+console['log'](coordsA['x']);
+
+// [] est plus dynamique
+const method = 'log';
+const key = 'x';
+console[method](coordsA[key]);
+
+
+const constants = {
+  DB_HOST: 'localhost',
+};
+
+Object.freeze(constants);
+
+// erreur :
+// constants.DB_HOST = '123.23.45.6';
+
+const partialConstants = {};
+
+// ajoute une clé writable: false, configurable: false, enumerable: true
+Object.defineProperty(partialConstants, 'DB_HOST', {
+  value: 'localhost',
+  writable: false,
+  configurable: false,
+  enumerable: true,
+});
+
+// ajoute une clé writable: true, configurable: true, enumerable: true
+partialConstants.DB_PASSWORD = 'RVDGRTGESGHDTYRFGD';
