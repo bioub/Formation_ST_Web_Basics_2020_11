@@ -1,3 +1,5 @@
+const { cpuUsage } = require("process");
+
 console.log('Math.sum', Math.sum); // undefined
 
 // ajouter une clé/valeur : étendre un objet
@@ -187,6 +189,11 @@ for (const key of Object.keys(coordsA)) {
   const value = coordsA[key];
 }
 
+// A partir de ES2017
+for (const [key, value] of Object.entries(coordsA)) {
+  console.log(key, value);
+}
+
 // 2 opérateurs pour accéder aux clés/valeurs
 console.log(coordsA.x);
 console['log'](coordsA['x']);
@@ -218,3 +225,23 @@ Object.defineProperty(partialConstants, 'DB_HOST', {
 
 // ajoute une clé writable: true, configurable: true, enumerable: true
 partialConstants.DB_PASSWORD = 'RVDGRTGESGHDTYRFGD';
+
+
+// const coords2d = {
+//   x: 0,
+//   y: 0,
+// };
+
+
+// function inherit(base, child) {
+//   for (const key in base) {
+//     child[key] = base[key];
+//   }
+// }
+
+// const coords3d = {
+//   z: 0,
+// };
+
+// inherit(coords2d, coords3d);
+// inherit(coords2d, {a: 1, b: 2});
