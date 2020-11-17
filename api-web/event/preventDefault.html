@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <div>
+    Credit Card :
+    <input type="text" class="credit-card-number">
+  </div>
+  <a href="https://www.google.fr/" class="link">Google</a>
+  <script>
+    /** @type {HTMLInputElement} */
+    const creditCardEl = document.querySelector('.credit-card-number');
+    /** @type {HTMLAnchorElement} */
+    const linkEl = document.querySelector('.link');
+
+    creditCardEl.addEventListener('beforeinput', (event) => {
+      const value = Number.parseInt(event.data);
+
+      if (Number.isNaN(value)) {
+        event.preventDefault();
+      }
+    });
+
+    linkEl.addEventListener('click', (event) => {
+      event.preventDefault();
+    });
+  </script>
+</body>
+</html>

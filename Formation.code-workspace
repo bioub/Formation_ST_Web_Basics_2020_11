@@ -11,9 +11,12 @@
 		},
 		{
 			"path": "typescript"
+		},
+		{
+			"path": "api-web"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "javascript-langage"
+		"liveServer.settings.multiRootWorkspaceName": "api-web"
 	}
 }
