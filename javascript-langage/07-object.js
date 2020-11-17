@@ -171,6 +171,12 @@ console.log('romain.prenom', romain.prenom); // Romain
 
 console.log('romain.hello()', romain.hello()); // Hello Romain
 
+console.log("romain.prenom !== undefined", romain.prenom !== undefined);
+console.log("romain.hello !== undefined", romain.hello !== undefined);
+
+console.log("romain.hasOwnProperty('prenom')", romain.hasOwnProperty('prenom'));
+console.log("romain.hasOwnProperty('hello')", romain.hasOwnProperty('hello'));
+
 const jean = new Contact('Jean');
 console.log(romain.hello === jean.hello); // true (partagée via le prototype)
 
