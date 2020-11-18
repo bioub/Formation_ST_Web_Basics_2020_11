@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .switch {
+      background-color: lightgray;
+      width: 40px;
+      height: 16px;
+      border-radius: 8px;
+      margin: 20px 0;
+      position: relative;
+      cursor: pointer;
+    }
+
+    .switch::after {
+      background-color: #f7f7f7;
+      content: '';
+      display: block;
+      width: 24px;
+      height: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 2px rgba(0, 0, 0, 0.3);
+      position: absolute;
+      top: -4px;
+    }
+
+    .switch.on {
+      background-color: lightgreen;
+    }
+
+    .switch.on::after {
+      right: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="switch"></div>
+  <div class="switch on"></div>
+  <script>
+    document.addEventListener('click', (event) => {
+      if (!event.target instanceof HTMLElement) {
+        return;
+      }
+
+      /** @type {HTMLElement} */
+      const target = event.target;
+
+      if (target.classList.contains('switch')) {
+        target.classList.toggle('on');
+      }
+    });
+  </script>
+</body>
+</html>

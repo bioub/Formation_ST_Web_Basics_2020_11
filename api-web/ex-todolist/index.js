@@ -29,28 +29,10 @@ function addTodo(todo, parentEl) {
   spanEl.innerText = todo.title;
   rowEl.appendChild(spanEl);
 
-  // A DEPLACER
-  spanEl.addEventListener('dblclick', () => {
-    const inputEl = document.createElement('input');
-    inputEl.value = spanEl.innerText;
-    rowEl.replaceChild(inputEl, spanEl);
-
-    // A DEPLACER
-    inputEl.addEventListener('blur', () => {
-      spanEl.innerText = inputEl.value;
-      rowEl.replaceChild(spanEl, inputEl);
-    });
-  });
-
   const btnRmEl = document.createElement('button');
   btnRmEl.className = 'todo-btn-remove';
   btnRmEl.innerText = '-';
   rowEl.appendChild(btnRmEl);
-
-  // A DEPLACER
-  btnRmEl.addEventListener('click', () => {
-    rowEl.parentElement.removeChild(rowEl);
-  });
 
   if (parentEl.childElementCount) {
     parentEl.insertBefore(rowEl, parentEl.firstElementChild);
@@ -59,6 +41,7 @@ function addTodo(todo, parentEl) {
   }
 }
 
+// Ajouter une todo
 todoFormEl.addEventListener('submit', (event) => {
   // empèche le navigateur de réalisation son action par défaut
   event.preventDefault();
@@ -71,22 +54,58 @@ todoFormEl.addEventListener('submit', (event) => {
     },
     todoContainerEl,
   );
+
+  // réinitialiser le champs
+  todoNewInputEl.value = '';
 });
 
-// IMPOSSIBLE D'ECOUTER LE CLICK DU BOUTON MOINS
-// -> il n'existe pas encore ici (au chargement de la page)
-// POSSIBLE avec event.target (phase de target)
+// Supprimer une todo
+todoContainerEl.addEventListener('click', (event) => {
+  /** @type {HTMLElement} */
+  const target = event.target;
 
-// Exercice
-// Récupérer les 3 addEventListener taggués A DEPLACER
-// Pour qu'il ne soient plus imbriqués
-// Utiliser pour cela la phase de target
-// addEventListener à faire sur un élément qui existe au chargement
-// (ex: document ou todoContainerEl)
-// ensuite utiliser event.target pour savoir qui a déclenché
-// l'événement
+  if (target.classList.contains('todo-btn-remove')) {
+    const rowEl = target.parentElement;
+    todoContainerEl.removeChild(rowEl);
+  }
+});
 
+// Remplacer le texte par un champs au double-clic
+todoContainerEl.addEventListener('dblclick', (event) => {
+  /** @type {HTMLElement} */
+  const target = event.target;
 
+  if (target.classList.contains('todo-title')) {
+    const inputEl = document.createElement('input');
+    inputEl.className = 'todo-title-edit';
+    inputEl.value = target.innerText;
+
+    const rowEl = target.parentElement;
+    rowEl.replaceChild(inputEl, target);
+
+    inputEl.focus();
+  }
+});
+
+// Remplacer le champs par le texte à la perte de focus (focusout)
+// The blur event fires when an element has lost focus.
+// The main difference between this event and focusout is that focusout bubbles
+// while blur does not.
+todoContainerEl.addEventListener('focusout', (event) => {
+  /** @type {HTMLElement} */
+  const target = event.target;
+
+  if (target.classList.contains('todo-title-edit')) {
+    const spanEl = document.createElement('span');
+    spanEl.className = 'todo-title';
+    spanEl.innerText = target.value;
+
+    const rowEl = target.parentElement;
+    rowEl.replaceChild(spanEl, target);
+  }
+});
+
+// Cocher/Décocher au clic de la checkbox globale
 todoToggleEl.addEventListener('click', () => {
   /** @type {NodeListOf<HTMLInputElement>} */
   const checkboxEls = todoContainerEl.querySelectorAll('.todo-completed');

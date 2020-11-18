@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      body {
+        background-color: rgb(35%, 35%, 35%);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        /* color: rgb(10%, 10%, 10%); */
+        /* color: rgb(26, 26, 26); */
+        color: #1a1a1a;
+      }
+
+      a {
+        /* pas d'héritage sur les propriétés dans le cas des liens */
+        text-decoration: none;
+        color: rgb(98, 151, 183);
+      }
+
+      #form-register {
+        background-color: rgb(95%, 95%, 95%);
+        padding: 5px;
+        width: 400px;
+        margin: 0 auto;
+      }
+
+      .form-row {
+        margin-bottom: 0.8em;
+      }
+
+      /* .form-row:last-child {
+        margin-bottom: 0;
+      } */
+
+      label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 0.3em;
+      }
+
+      .form-input-group {
+        margin-bottom: 0.3em;
+      }
+
+      .form-helper {
+        font-size: 0.8em;
+      }
+
+      .form-input-group input,
+      .form-input-group select {
+        box-sizing: border-box;
+        width: 100%;
+      }
+
+      .form-input-group-username {
+        position: relative;
+      }
+
+      .form-input-group-username::after {
+        position: absolute;
+        content: "@gmail.com";
+        top: 3px;
+        right: 4px;
+        font-size: 0.8em;
+        color: #757575;
+      }
+
+      .form-input-group-username input {
+        padding-right: 80px;
+      }
+
+      .form-input-group-name input {
+        width: calc(50% - (4px / 2));
+      }
+
+      .form-input-group-name input:last-child {
+        margin-left: 4px;
+      }
+
+      .form-input-group-birthdate input,
+      .form-input-group-birthdate select {
+        width: calc(33.33% - ((6px * 2) / 3));
+      }
+
+      .form-input-group-birthdate input:not(:first-child),
+      .form-input-group-birthdate select:not(:first-child) {
+        margin-left: 6px;
+      }
+    </style>
+  </head>
+  <body>
+    <form id="form-register" action="/register" method="post" novalidate>
+      <div class="form-row">
+        <label>Nom</label>
+        <div class="form-input-group form-input-group-name">
+          <input
+            type="text"
+            name="prenom"
+            placeholder="Prénom"
+            required
+          /><input type="text" name="nom" placeholder="Nom" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Choisissez votre nom d'utilisateur</label>
+        <div class="form-input-group form-input-group-username">
+          <input type="text" name="username" required />
+        </div>
+        <div class="form-helper">
+          <a href="#">Je préfère utiliser mon adresse email actuelle</a>
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Créer votre mot de passe</label>
+        <div class="form-input-group">
+          <input type="password" name="password" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Confirmer votre mot de passe</label>
+        <div class="form-input-group">
+          <input type="password" id="confirm-password" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Date de naissance</label>
+        <div class="form-input-group form-input-group-birthdate">
+          <input type="text" name="jour" required /><select name="mois">
+            <option value="01">Janvier</option>
+            <option value="02">Février</option>
+            <option value="03">Mars</option></select
+          ><input type="text" name="annee" required />
+        </div>
+      </div>
+      <div class="form-row">
+        <label>Sexe</label>
+        <div class="form-input-group">
+          <select name="mois">
+            <option>Je suis...</option>
+            <option value="m">Homme</option>
+            <option value="f">Femme</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <button>Inscription</button>
+      </div>
+    </form>
+    <script>
+      // Exercice Valider le formulaire
+      // s'il est invalide appeler event.preventDefault()
+
+      // Vérifier que prenom et nom soit remplis
+
+      // Vérifier que le mot de passe et sa confirmation correspondent
+
+      // En cas d'erreur, afficher l'erreur dans une balise div sous le champ
+      // activer un état (par exemple invalid) qui affiche la bordure du champs en rouge
+      // le faire dans le css et activer la classe en JS si erreur
+    </script>
+  </body>
+</html>
