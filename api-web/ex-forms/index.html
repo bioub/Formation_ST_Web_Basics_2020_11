@@ -7,8 +7,8 @@
     <style>
       body {
         background-color: rgb(35%, 35%, 35%);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
-          "Helvetica Neue", Arial, "Noto Sans", sans-serif;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+          'Helvetica Neue', Arial, 'Noto Sans', sans-serif;
         /* color: rgb(10%, 10%, 10%); */
         /* color: rgb(26, 26, 26); */
         color: #1a1a1a;
@@ -29,6 +29,14 @@
 
       .form-row {
         margin-bottom: 0.8em;
+      }
+
+      .form-row.has-error input {
+        border: 1px solid red;
+      }
+
+      .form-row.has-error .form-error {
+        color: red;
       }
 
       /* .form-row:last-child {
@@ -61,7 +69,7 @@
 
       .form-input-group-username::after {
         position: absolute;
-        content: "@gmail.com";
+        content: '@gmail.com';
         top: 3px;
         right: 4px;
         font-size: 0.8em;
@@ -150,6 +158,66 @@
       </div>
     </form>
     <script>
+      /**
+       * @param {HTMLElement}
+       * @param {string}
+       */
+      function insertError(controlEl, errorMsg) {
+        const divEl = document.createElement('div');
+        divEl.className = 'form-error';
+        divEl.innerText = errorMsg;
+        controlEl.parentElement.after(divEl); // PAS IE
+
+        const formRowEl = controlEl.parentElement.parentElement;
+        formRowEl.classList.add('has-error');
+      }
+
+      function resetErrors() {
+        const errorEls = document.querySelectorAll('.form-error');
+
+        for (const errorEl of errorEls) {
+          errorEl.remove(); // PAS IE
+        }
+
+        const formRowErrorEls = document.querySelectorAll('.has-error');
+
+        for (const formRowErrorEl of formRowErrorEls) {
+          formRowErrorEl.classList.remove('has-error'); // PAS IE
+        }
+      }
+
+      /** @type {HTMLFormElement} */
+      const formEl = document.querySelector('#form-register');
+
+      formEl.addEventListener('submit', (event) => {
+        resetErrors();
+
+        const errors = {};
+        const prenomEl = formEl.prenom;
+        const nomEl = formEl.nom;
+        const passwordEl = formEl.password;
+        const confirmPasswordEl = formEl.querySelector('#confirm-password');
+
+        if (prenomEl.value === '') {
+          errors.prenom = 'Le prénom est obligatoire';
+          insertError(prenomEl, errors.prenom);
+        }
+
+        if (nomEl.value === '') {
+          errors.nom = 'Le nom est obligatoire';
+          insertError(nomEl, errors.nom);
+        }
+
+        if (passwordEl.value !== confirmPasswordEl.value) {
+          errors.confirmPassword =
+            'Le mot de passe et la confirmation ne correspondent pas';
+          insertError(passwordEl, errors.confirmPassword);
+        }
+
+        if (Object.keys(errors).length) {
+          event.preventDefault();
+        }
+      });
       // Exercice Valider le formulaire
       // s'il est invalide appeler event.preventDefault()
 

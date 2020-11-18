@@ -117,3 +117,27 @@ todoToggleEl.addEventListener('click', () => {
     checkboxEl.checked = todoToggleEl.checked;
   }
 });
+
+
+
+// Récupère les todos du service
+fetch('https://jsonplaceholder.typicode.com/todos') // PAS IE
+  .then((res) => res.json())
+  .then((todos) => {
+    for (const todo of todos) {
+      addTodo(todo, todoContainerEl);
+    }
+  });
+
+// Stocker la saisie dans le localStorage
+todoNewInputEl.addEventListener('input', () => {
+  localStorage.setItem('newTodo', todoNewInputEl.value);
+});
+
+// au chargement si le localStorage contient une valeur
+// on l'affiche dans le champs
+const newTodo = localStorage.getItem('newTodo');
+
+if (newTodo) {
+  todoNewInputEl.value = newTodo;
+}
