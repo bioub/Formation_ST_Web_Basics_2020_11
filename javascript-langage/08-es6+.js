@@ -85,5 +85,6 @@ console.log('typeof Contact', typeof Contact); // function
 console.log('typeof romain', typeof romain); // object
 console.log('typeof Contact.prototype.hello', typeof Contact.prototype.hello); // function
 
+// reste dynamique (ex : on peut supprimer des propriétés)
 delete romain.prenom;
 console.log('typeof romain.prenom', typeof romain.prenom); // undefined

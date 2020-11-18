@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    body {
+      margin: 0;
+      display: flex;
+      height: 100vh;
+    }
+
+    #outer-box {
+      margin: auto;
+      background-color: lightblue;
+      width: 200px;
+      height: 200px;
+      display: flex;
+    }
+
+    #inner-box {
+      margin: auto;
+      background-color: lightcoral;
+      width: 100px;
+      height: 100px;
+    }
+  </style>
+</head>
+<body>
+  <div id="outer-box">
+    <div id="inner-box"></div>
+  </div>
+  <script>
+    const outerBox = document.querySelector('#outer-box');
+
+    // outerBox.addEventListener('click', () => console.log('click'));
+    // outerBox.addEventListener('dblclick', () => console.log('dblclick'));
+    // outerBox.addEventListener('mousedown', () => console.log('mousedown'));
+    // outerBox.addEventListener('mousemove', () => console.log('mousemove'));
+    // outerBox.addEventListener('mouseup', () => console.log('mouseup'));
+    // outerBox.addEventListener('mouseenter', () => console.log('mouseenter'));
+    // outerBox.addEventListener('mouseover', () => console.log('mouseover'));
+    // outerBox.addEventListener('mouseleave', () => console.log('mouseleave'));
+    // outerBox.addEventListener('mouseout', () => console.log('mouseout'));
+    // outerBox.addEventListener('contextmenu', () => console.log('contextmenu'));
+
+    outerBox.addEventListener('click', (/** @type {MouseEvent} */ event) => {
+      // console.log(event instanceof Event);
+      // console.log(event instanceof UIEvent);
+      // console.log(event instanceof MouseEvent);
+      // console.log(event);
+      // console.log(event.shiftKey); // shiftKey, ctrlKey, metaKey, altKey
+      console.log(event.clientX);
+      console.log(event.clientY);
+      console.log(outerBox.getBoundingClientRect());
+      console.log(outerBox.getBoundingClientRect());
+    });
+  </script>
+</body>
+</html>

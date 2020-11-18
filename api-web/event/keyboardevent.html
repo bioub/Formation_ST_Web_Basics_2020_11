@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <input>
+  <script>
+    const inputEl = document.querySelector('input');
+    inputEl.addEventListener('keydown', () => console.log('keydown'));
+    inputEl.addEventListener('keypress', () => console.log('keypress'));
+    inputEl.addEventListener('keyup', () => console.log('keyup'));
+
+    // pas des KeyboardEvent
+    inputEl.addEventListener('beforeinput', () => console.log('beforeinput'));
+    inputEl.addEventListener('input', () => console.log('input'));
+  </script>
+</body>
+</html>

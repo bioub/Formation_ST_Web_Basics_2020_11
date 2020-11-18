@@ -20,12 +20,23 @@
     creditCardEl.addEventListener('beforeinput', (event) => {
       const value = Number.parseInt(event.data);
 
+      // seuls les nombres seront affichés
       if (Number.isNaN(value)) {
+        // on bloque l'action par défaut du navigateur :
+        // l'affichage de la valeur dans le champs
         event.preventDefault();
       }
     });
 
     linkEl.addEventListener('click', (event) => {
+      // on bloque l'action par défaut du navigateur :
+      // aller sur la page de destination
+      event.preventDefault();
+    });
+
+    document.addEventListener('contextmenu', (event) => {
+      // on bloque l'action par défaut du navigateur :
+      // afficher le menu contextuel
       event.preventDefault();
     });
   </script>

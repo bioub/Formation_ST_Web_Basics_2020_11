@@ -14,4 +14,8 @@ const outputEl = document.querySelector('.output');
 fieldEl.addEventListener('input', () => {
   const value = fieldEl.value;
   outputEl.innerText = value;
+
+  // Vidéo In the loop
+  // const debut = Date.now();
+  // while (Date.now() < debut + 5000) {}
 });
