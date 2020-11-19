@@ -17,6 +17,7 @@
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "api-web"
+		"liveServer.settings.multiRootWorkspaceName": "api-web",
+		"liveServer.settings.port": 5501
 	}
 }

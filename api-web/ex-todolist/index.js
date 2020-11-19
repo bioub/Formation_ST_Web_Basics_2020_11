@@ -124,6 +124,14 @@ todoToggleEl.addEventListener('click', () => {
 fetch('https://jsonplaceholder.typicode.com/todos') // PAS IE
   .then((res) => res.json())
   .then((todos) => {
+    // transformer la réponse
+    todos = todos.slice(0, 10); // garde les 10 premières max
+    todos = todos.map((t) => ({
+      id: t.id,
+      title: t.title.toUpperCase(),
+      completed: t.completed,
+    }));
+
     for (const todo of todos) {
       addTodo(todo, todoContainerEl);
     }
