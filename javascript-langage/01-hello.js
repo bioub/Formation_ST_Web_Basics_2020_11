@@ -6,7 +6,8 @@ const prenoms = ['Romain', 'Eric', 'Frédéric'];
  * @returns {string} Un message
  */
 function hello(name) {
-  return `Hello ${name.toUpperCase()}`;
+  return 'Hello ' + (name.toUpperCase()) + ' !';
+  return `Hello ${name.toUpperCase()} !`;
 }
 
 for (const p of prenoms) {

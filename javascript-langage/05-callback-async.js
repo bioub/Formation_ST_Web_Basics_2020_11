@@ -26,3 +26,14 @@ console.log('E');
 // file d'attente (499ms) : cbA cbD
 // file d'attente (500ms) : cbD
 // file d'attente (501ms) :
+
+// Jake Archibald : In The Loop (JSConf Asia 2018)
+
+// Pour boucler en asynchrone
+// function loop() {
+//   setTimeout(() => {
+//     loop();
+//   }, 1000);
+// }
+
+// loop();

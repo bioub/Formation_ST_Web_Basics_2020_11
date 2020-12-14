@@ -14,10 +14,13 @@
 		},
 		{
 			"path": "api-web"
+		},
+		{
+			"path": "projet"
 		}
 	],
 	"settings": {
-		"liveServer.settings.multiRootWorkspaceName": "api-web",
+		"liveServer.settings.multiRootWorkspaceName": "projet",
 		"liveServer.settings.port": 5501
 	}
 }

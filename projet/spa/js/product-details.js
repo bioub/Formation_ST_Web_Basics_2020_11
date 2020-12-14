@@ -1,6 +1,6 @@
 /** @param {HTMLElement} mainEl */
 function productDetails(mainEl) {
-  if (!selectedProduct) {
+  if (!selectedProduct) {  // à importer
     location.hash = '/products';
     return;
   }

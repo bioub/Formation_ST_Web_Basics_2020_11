@@ -26,10 +26,11 @@ function multiply(a, b) {
 const nbs = [3, 4];
 console.log(multiply(...nbs));
 
+
 const cloneArray = [...nbs]; // [3, 4] clone non-récursif (shallow clone)
 const ajouterEnClonant = [1, 2, ...nbs, 5]; // modification immuable
 
-
+// Destructurer un tableau
 //    [3    , 4     ]
 const [trois, quatre] = nbs;
 console.log(trois); // 3
@@ -51,6 +52,7 @@ const numbers = [1, 2, 3, 4, 5, 6];
 const [un, ...otherNumbers] = numbers;
 console.log(otherNumbers); // [2, 3, 4, 5, 6]
 
+// Destructurer un objet
 const coords = {x: 1, y: 2};
 
 //    {x: 1  , y: 2  }

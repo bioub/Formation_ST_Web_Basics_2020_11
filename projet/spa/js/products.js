@@ -82,7 +82,7 @@ function createProductRow(product) {
 function applyFilters(products) {
   let results = products;
 
-  if (filters.name) {
+  if (filters.name) {  // à importer
     results = results.filter((p) =>
       p.name.toLowerCase().includes(filters.name.toLowerCase()),
     );

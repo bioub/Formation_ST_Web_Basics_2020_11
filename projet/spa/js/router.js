@@ -1,23 +1,23 @@
 const routes = [
   {
     hash: '#/',
-    render: home,
+    render: home, // à importer
   },
   {
     hash: '#/about',
-    render: about,
+    render: about, // à importer
   },
   {
     hash: '#/search',
-    render: search,
+    render: search, // à importer
   },
   {
     hash: '#/products',
-    render: products,
+    render: products, // à importer
   },
   {
     hash: '#/product-details',
-    render: productDetails,
+    render: productDetails, // à importer
   },
 ];
 
@@ -27,7 +27,7 @@ function matchRoute() {
   const match = routes.find((route) => route.hash === location.hash);
 
   if (!match) {
-    return notFound(mainEl);
+    return notFound(mainEl); // à importer
   }
 
   match.render(mainEl);

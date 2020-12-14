@@ -1,3 +1,5 @@
+'use strict';
+
 // Dans Node.js
 globalThis.globalScopeVar = 'globalScopeVar';
 const moduleScopeVar = 'moduleScopeVar';
